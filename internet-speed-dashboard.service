@@ -1,0 +1,12 @@
+[Unit]
+Description=Internet Speed Dashboard Service
+After=network.target
+
+[Service]
+Type=oneshot
+Environment="HOME=/home/pi"
+ExecStart=/bin/bash -c 'source $HOME/internet-speed-dashboard/venv/bin/activate && python $HOME/internet-speed-dashboard/dashboard.py'
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
